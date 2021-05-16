@@ -2,6 +2,10 @@ import TodoForm from './form.js';
 import TodoList from './list.js';
 import { useState, useEffect } from 'react';
 import './todo.scss';
+import Navigation from './navbar';
+import Card from 'react-bootstrap/Card';
+import {Container,Row,Col} from 'react-bootstrap';
+
 
 export default function ToDo(props) {
 
@@ -14,19 +18,17 @@ export default function ToDo(props) {
   ]);
 
   useEffect(() => {
-    document.title = `${
-      list.filter(item => !item.complete).length
-    } items to complete`;
+    document.title = `toDo List`;
   });
 
-  const saveItem = updatedItem => {
+  const saveItem = (updatedItem) => {
     setList(
       list.map(item => (item._id === updatedItem._id ? updatedItem : item))
     );
-  }; 
+  };
 
-  const toggleComplete = id => {
-    let item = list.filter(i => i._id === id)[0] || {};
+  const toggleComplete = (id) => {
+    let item = list.filter((element) => element._id === id)[0] || {};
     if (item._id) {
       item.complete = !item.complete;
       saveItem(item);
@@ -35,24 +37,38 @@ export default function ToDo(props) {
 
   return (
     <>
-      <header>
-        <h2>
-          To Do List Manager {list.filter(item => !item.complete).length}
-      </h2>
-      </header>
+      <Navigation />
+      <main>
+        <Card style={{ width: '70rem' }, { margin: '4rem 4rem 0 4rem' }} bg="dark" text="white">
+          <Card.Title as="h2" color="white" style={{ margin: '1rem' }}>
+            To Do List Manager {list.filter(item => !item.complete).length}
+          </Card.Title>
+        </Card>
 
-      <section className="todo">
+        <Card style={{ width: '70rem' }, { margin: '0 4rem 0 4rem' }}>
+          <Card.Body bg="white">
+            <Container fluid="md">
+              <Row className="justify-content-md-center">
+                <Col md={3}>
 
-        <div>
-          <TodoForm  list = {list} setList={setList} />
-        </div>
+                  <div>
+                    <TodoForm list={list} setList={setList} />
+                  </div>
+                </Col>
 
-        <div>
-          <TodoList
-            handleComplete={toggleComplete} list = {list} setList={setList}
-          />
-        </div>
-      </section>
+                <Col md={{ span: 7, offset: 0 }}>
+
+                <div>
+                  <TodoList
+                    handleComplete={toggleComplete} list={list} setList={setList}
+                  />
+                </div>
+                </Col>
+              </Row>
+            </Container>
+          </Card.Body>
+        </Card>
+      </main>
     </>
   )
 }
