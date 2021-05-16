@@ -39,13 +39,13 @@ export default function ToDo(props) {
     <>
       <Navigation />
       <main>
-        <Card style={{ width: '70rem' }, { margin: '4rem 4rem 0 4rem' }} bg="dark" text="white">
+        <Card style={{ width: '70rem' },{ margin: '4rem 4rem 0 4rem' }} bg="dark" text="white">
           <Card.Title as="h2" color="white" style={{ margin: '1rem' }}>
             To Do List Manager {list.filter(item => !item.complete).length}
           </Card.Title>
         </Card>
 
-        <Card style={{ width: '70rem' }, { margin: '0 4rem 0 4rem' }}>
+        <Card style={{ width: '70rem' },{ margin: '0 4rem 0 4rem' }}>
           <Card.Body bg="white">
             <Container fluid="md">
               <Row className="justify-content-md-center">

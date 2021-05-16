@@ -1,7 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
- function TodoList(props) {
+function TodoList(props) {
 
   const deleteItem = (id) => {
     props.setList(props.list.filter(item => item._id !== id));
@@ -10,8 +10,8 @@ import Button from 'react-bootstrap/Button';
   return (
     <ul>
       {props.list.map(item => (
-        <ListGroup.Item style={{ margin: '0 4rem 0 4rem' } ,{height: '4rem'}}
-        variant={(item.complete) ? 'danger' : 'success'}
+        <ListGroup.Item style={{ margin: '0 4rem 0 4rem' },{ height: '4rem' }}
+          variant={(item.complete) ? 'danger' : 'success'}
 
           className={`complete-${item.complete.toString()}`}
           key={item._id}
@@ -19,7 +19,7 @@ import Button from 'react-bootstrap/Button';
           <span onClick={() => props.handleComplete(item._id)}>
             {item.text}
           </span>
-          <Button variant="dark" onClick={() => deleteItem(item._id)} style={{ margin: '0 4rem 0 4rem' } ,{float: 'right'} }>Delete</Button>
+          <Button variant="dark" onClick={() => deleteItem(item._id)} style={{ margin: '0 4rem 0 4rem' },{ float: 'right' }}>Delete</Button>
         </ListGroup.Item>
       ))}
     </ul>
