@@ -15,7 +15,7 @@ function ToDo(props) {
     document.title = `To Do List : complete ${list.filter(item => item.complete).length} / incomplete ${list.filter(item => !item.complete).length}`
   })
 
-  useEffect(_getTodoItems, []);
+  useEffect(_getTodoItems,['']);
 
   return (
     <>
