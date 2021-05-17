@@ -2,7 +2,7 @@
 
 [deploy heroku link](https://todolist401hooks.herokuapp.com/)
 
-[deploy netlify link](https://todolist401hooks.netlify.app/)
+<!-- [deploy netlify link](https://todolist401hooks.netlify.app/) -->
 
 ![lab31](lab32.PNG)
 
