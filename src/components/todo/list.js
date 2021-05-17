@@ -18,7 +18,7 @@ function TodoList(props) {
           >
             {item.text}
             <br />
-            <div class="difficultly" style={{ float: 'right' }} >Difficulty: {item.difficulty}</div>
+            <div className="difficultly" style={{ float: 'right' }} >Difficulty: {item.difficulty}</div>
           </Toast.Body>
         </Toast>
       ))}
