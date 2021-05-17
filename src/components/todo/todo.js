@@ -1,68 +1,50 @@
+import React from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { Container, Col, Row, Card } from 'react-bootstrap';
 import './todo.scss';
-import Navigation from './navbar';
-import Card from 'react-bootstrap/Card';
-import {Container,Row,Col} from 'react-bootstrap';
+import useAjax from './useAjaxhook.js';
+import Navigation from './navbar.js';
 
 
-export default function ToDo(props) {
-
-  const [list, setList] = useState([
-    { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
-    { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
-    { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
-    { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
-    { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
-  ]);
+function ToDo(props) {
+  const [list, _addItem, _toggleComplete, _getTodoItems, handleDelete] = useAjax();
 
   useEffect(() => {
-    document.title = `toDo List`;
-  });
+    document.title = `To Do List : complete ${list.filter(item => item.complete).length} / incomplete ${list.filter(item => !item.complete).length}`
+  })
 
-  const saveItem = (updatedItem) => {
-    setList(
-      list.map(item => (item._id === updatedItem._id ? updatedItem : item))
-    );
-  };
-
-  const toggleComplete = (id) => {
-    let item = list.filter((element) => element._id === id)[0] || {};
-    if (item._id) {
-      item.complete = !item.complete;
-      saveItem(item);
-    }
-  };
+  useEffect(_getTodoItems, []);
 
   return (
     <>
       <Navigation />
       <main>
-        <Card style={{ width: '70rem' , margin: '4rem 4rem 0 4rem' }} bg="dark" text="white">
+        <Card style={{ width: '85rem', margin: '4rem 4rem 0 4rem'}} bg="dark" text="white">
           <Card.Title as="h2" color="white" style={{ margin: '1rem' }}>
             To Do List Manager {list.filter(item => !item.complete).length}
           </Card.Title>
         </Card>
 
-        <Card style={{ width: '70rem', margin: '0 4rem 0 4rem' }}>
+        <Card style={{ width: '85rem', margin: '0 4rem 0 4rem' , overflow: 'scroll'}}>
           <Card.Body bg="white">
             <Container fluid="md">
               <Row className="justify-content-md-center">
                 <Col md={3}>
 
                   <div>
-                    <TodoForm list={list} setList={setList} />
+                    <TodoForm list={list} handleSubmit={_addItem} />
                   </div>
                 </Col>
 
                 <Col md={{ span: 7, offset: 0 }}>
 
-                <div>
-                  <TodoList
-                    handleComplete={toggleComplete} list={list} setList={setList}
-                  />
-                </div>
+                  <div>
+                    <TodoList
+                      handleComplete={_toggleComplete} list={list} handleDelete={handleDelete}
+                    />
+                  </div>
                 </Col>
               </Row>
             </Container>
@@ -72,3 +54,5 @@ export default function ToDo(props) {
     </>
   )
 }
+
+export default ToDo
