@@ -1,10 +1,10 @@
 # To Do List (Hooks)
 
-[deploy heroku link](https://todolist401.herokuapp.com/)
+[deploy heroku link](https://todolist401hooks1.herokuapp.com/)
 
-[deploy netlify link](https://todolist401.netlify.app/)
+[deploy netlify link](https://todolist401hooks1.netlify.app/)
 
-![lab31](lab31.PNG)
+![lab31](lab32.PNG)
 
 
 # Getting Started with Create React App
