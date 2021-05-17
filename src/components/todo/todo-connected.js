@@ -65,7 +65,7 @@ const ToDo = () => {
   // useEffect(_getTodoItems, []);
 
   useEffect(() => {
-    _getTodoItems}, []) 
+    _getTodoItems()},[_getTodoItems]) 
 
   return (
     <>
