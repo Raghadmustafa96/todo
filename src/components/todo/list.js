@@ -19,7 +19,12 @@ function TodoList(props) {
           <span onClick={() => props.handleComplete(item._id)}>
             {item.text}
           </span>
-          <Button variant="dark" onClick={() => deleteItem(item._id)} style={{ margin: '0 4rem 0 4rem',float: 'right' }}>Delete</Button>
+          <Button variant="dark" onClick={() => deleteItem(item._id)} style={{ margin: '0 4rem 0 4rem', float: 'right' }}>Delete</Button>
+          <br />
+
+          <div className="difficultly" style={{ float: 'right' }} >{item.assignee}</div>
+
+
         </ListGroup.Item>
       ))}
     </ul>

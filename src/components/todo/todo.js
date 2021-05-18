@@ -18,8 +18,8 @@ export default function ToDo(props) {
   ]);
 
   useEffect(() => {
-    document.title = `toDo List`;
-  });
+    document.title = `To Do List : complete ${list.filter(item => item.complete).length} / incomplete ${list.filter(item => !item.complete).length}`
+  })
 
   const saveItem = (updatedItem) => {
     setList(
