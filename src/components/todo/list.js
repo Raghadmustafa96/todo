@@ -1,10 +1,15 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Toast, Badge } from 'react-bootstrap';
+import { PaginationContext }  from '../context/paginationPage'
+import { useContext } from 'react';
+
 
 function TodoList(props) {
+  const pagination = useContext(PaginationContext);
+
   return (
-    <ListGroup style={{ height: '10rem' }}>
-      {props.list.map(item => (
+    <ListGroup style={{ height: '10rem'}}>
+      {pagination.currentItem.map(item => (
         <Toast onClose={() => props.handleDelete(item._id)}
           className={`complete-${item.complete.toString()}`}
           key={item._id}
