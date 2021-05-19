@@ -1,8 +1,7 @@
 # To Do List (Hooks)
 
-[deploy heroku link](https://todolist401hooks3.herokuapp.com/)
+[deploy link](https://todolist401hooks3.herokuapp.com/)
 
-[deploy netlify link](https://todolist401hooks3.netlify.app/)
 
 ![lab31](lab33.PNG)
 
