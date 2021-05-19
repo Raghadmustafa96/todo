@@ -28,6 +28,8 @@ function ToDo() {
     }
     _add();
   }
+    document.title = `To Do List : complete ${list.filter(item => item.complete).length} / incomplete ${list.filter(item => !item.complete).length}`
+  })
 
   const toggleComplete = id => {
 
