@@ -30,7 +30,7 @@ const Pagination = ({ totalNum }) => {
 
       <ul className='pagination'>
         <li>
-          <a onClick={pageNum.length != pagination.currentPage ? () => pagination.paginate(pagination.currentPage++) : () => pagination.paginate(pagination.currentPage)} className='page-link'> Next </a>
+          <a onClick={pageNum.length !== pagination.currentPage ? () => pagination.paginate(pagination.currentPage++) : () => pagination.paginate(pagination.currentPage)} className='page-link'> Next </a>
         </li>
 
         <li>
