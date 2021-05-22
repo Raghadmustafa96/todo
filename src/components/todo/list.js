@@ -26,6 +26,14 @@ function TodoList(props) {
             <div className="difficultly" style={{ float: 'right' }} >Difficulty: {item.difficulty}</div>
           </Toast.Body>
         </Toast>
+          </span>
+          <Button variant="dark" onClick={() => deleteItem(item._id)} style={{ margin: '0 4rem 0 4rem', float: 'right' }}>Delete</Button>
+          <br />
+
+          <div className="difficultly" style={{ float: 'right' }} >{item.assignee}</div>
+
+
+        </ListGroup.Item>
       ))}
       
     </ListGroup>
