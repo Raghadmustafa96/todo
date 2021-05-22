@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './app.js';
+import LoginProvider from './components/auth/context.js';
 
 class Main extends React.Component {
+
   render() {
-    return <App />;
+    return (
+      <LoginProvider>
+      <App />
+    </LoginProvider>
+    )
   }
 }
 
