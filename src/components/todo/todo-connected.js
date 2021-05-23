@@ -62,7 +62,7 @@ const ToDo = () => {
       .catch(console.error);
   };
 
-  useEffect(_getTodoItems, []);
+  useEffect(_getTodoItems, [_getTodoItems]);
 
   return (
     <>
